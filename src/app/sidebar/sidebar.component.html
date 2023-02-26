@@ -1,0 +1,10 @@
+<div class="sidebar-container fade-in-left" *ngIf="sidebarShow">
+  <div class="close-icon-container">
+    <i class="bi bi-x-circle" (click)="closeSidebar()"></i>
+  </div>
+  <app-employee
+    [employee]="selectedEmployee"
+    [isReadOnlyYears]="true"
+    (updateEmp)="handleUpdatedEmp($event)"
+  ></app-employee>
+</div>

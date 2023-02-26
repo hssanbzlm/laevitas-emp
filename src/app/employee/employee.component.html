@@ -1,0 +1,87 @@
+<div [ngClass]="formClass">
+  <form [formGroup]="employeeForm">
+    <div class="card-header">
+      <div class="remove-icon">
+        <ng-content select="[removeIcon]"></ng-content>
+      </div>
+      <div class="select-icon">
+        <ng-content select="[selectIcon]"></ng-content>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Name</label>
+      <input
+        [readOnly]="isReadOnlyName"
+        type="text"
+        (keyup)="!isAdd && onUpdateEmp()"
+        formControlName="name"
+        placeholder="name"
+        class="form-control"
+        [ngClass]="{
+          'is-invalid': submitted && employeeForm.get('name')?.errors != null
+        }"
+      />
+      <div
+        *ngIf="submitted && employeeForm.get('name')?.errors"
+        class="invalid-feedback"
+      >
+        <div *ngIf="employeeForm.get('name')?.errors?.['required']">
+          Name is required
+        </div>
+        <div *ngIf="employeeForm.get('name')?.errors?.['pattern']">
+          Name contains only letters
+        </div>
+        <div *ngIf="employeeForm.get('name')?.errors?.['minlength']">
+          Name min length is 3
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Surname</label>
+      <input
+        [readOnly]="isReadOnlySurName"
+        (keyup)="!isAdd && onUpdateEmp()"
+        type="text"
+        placeholder="surname"
+        formControlName="surname"
+        class="form-control"
+        [ngClass]="{
+          'is-invalid': submitted && employeeForm.get('surname')?.errors != null
+        }"
+      />
+      <div
+        *ngIf="submitted && employeeForm.get('surname')?.errors"
+        class="invalid-feedback"
+      >
+        <div *ngIf="employeeForm.get('surname')?.errors?.['required']">
+          Surname is required
+        </div>
+        <div *ngIf="employeeForm.get('surname')?.errors?.['pattern']">
+          Surname contains only letters
+        </div>
+        <div *ngIf="employeeForm.get('surname')?.errors?.['minlength']">
+          Surname min length is 3
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Years of experience</label>
+      <input
+        (change)="onUpdateEmp()"
+        type="number"
+        min="0"
+        value="0"
+        placeholder="years"
+        [readOnly]="isReadOnlyYears"
+        formControlName="years"
+        class="form-control"
+        [ngClass]="{
+          'is-invalid': submitted && employeeForm.get('years')?.errors
+        }"
+      />
+    </div>
+    <div class="form-group" *ngIf="isAdd">
+      <app-button [buttonType]="'primary'" (click)="onSubmit()">Add</app-button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,40 @@
+<div class="list-container">
+  <div class="btn-container">
+    <app-button [buttonType]="'danger'" (click)="cancel()">Cancel</app-button>
+    <app-button
+      [isDisabled]="isSaveDisabled()"
+      [buttonType]="'success'"
+      (click)="save()"
+      >Save</app-button
+    >
+    <app-button [buttonType]="'info'" (click)="load()">Load</app-button>
+  </div>
+  <div
+    cdkDropList
+    cdkDropListOrientation="horizontal"
+    (cdkDropListDropped)="drop($event)"
+    class="emp-container"
+  >
+    <app-employee
+      class="drop-box"
+      cdkDrag
+      [formClass]="'container'"
+      *ngFor="let emp of employees; trackBy: employeesTrackById"
+      [employee]="emp"
+      [isReadOnlyName]="true"
+      [isReadOnlySurName]="true"
+      (updateEmp)="handleUpdatedEmp($event)"
+    >
+      <i
+        removeIcon
+        class="bi bi-trash-fill text-danger"
+        (click)="remove(emp)"
+      ></i>
+      <i
+        (click)="setSelectedEmployee(emp)"
+        selectIcon
+        class="bi bi-arrow-bar-left"
+      ></i>
+    </app-employee>
+  </div>
+</div>

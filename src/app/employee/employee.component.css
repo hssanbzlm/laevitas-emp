@@ -1,0 +1,35 @@
+.container{
+    display: flex;
+    justify-content: center;
+    margin-top: 8px;
+    margin-bottom: 5px;
+    width: fit-content;
+}
+.container>form{
+    border: 1px solid rgb(209, 209, 209);
+    border-radius: 15px;
+    padding: 15px;
+    background: white;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    width: 18vw;
+    
+}
+
+label{
+    font-weight: 500;
+}
+
+form,.form-group{
+    display: flex;
+    align-items:flex-start;
+    flex-direction: column;
+    padding: 5px;
+}
+.card-header{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.remove-icon,.select-icon{
+    cursor: pointer;
+}

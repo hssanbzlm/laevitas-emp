@@ -1,0 +1,19 @@
+.add-container{
+    margin-top: 1.5rem;
+    width: fit-content;
+}
+.app-container{
+    display: flex;
+    justify-content: center;
+    
+}
+.employees-page{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-grow: 1;
+}
+
+.employees-list{
+    width: 95%;
+}

@@ -1,0 +1,46 @@
+.sidebar-container{
+    height: 100vh;
+    margin-top: 15px;
+    margin-left: 5px;
+    width: 15em;
+    background: linear-gradient(180deg, rgb(247, 244, 244) 5%, rgb(253, 253, 253) 80%);
+    border: 1px solid rgb(209, 209, 209);
+    border-radius: 8px;
+    
+}
+
+.close-icon-container{
+  margin: 5px 0px 10px 10px;
+   cursor: pointer;
+}
+.fade-in-left {
+	-webkit-animation: fade-in-left 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+	        animation: fade-in-left 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+}
+
+ @-webkit-keyframes fade-in-left {
+    0% {
+      -webkit-transform: translateX(-50px);
+              transform: translateX(-50px);
+      opacity: 0;
+    }
+    100% {
+      -webkit-transform: translateX(0);
+              transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  @keyframes fade-in-left {
+    0% {
+      -webkit-transform: translateX(-50px);
+              transform: translateX(-50px);
+      opacity: 0;
+    }
+    100% {
+      -webkit-transform: translateX(0);
+              transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  
+  
